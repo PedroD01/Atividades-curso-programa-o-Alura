@@ -1,9 +1,22 @@
 function sortear () {
-    let quant = parseIntdocument.getElementById('quantidade').value;
-    let de = parseIntdocument.getElementById('de').value;
-    let ate = parseIntdocument.getElementById('ate').value;
+    let quant = parseInt(document.getElementById('quantidade').value);
+    let de = parseInt(document.getElementById('de').value);
+    let ate = parseInt(document.getElementById('ate').value);
 
-    console.log(quant);
-    console.log(de);
-    console.log(ate);
+    let numero;
+    let sorteados = [];
+    for(let i = 0; i < quant; i++){
+        numero = obter_numero_aleatorio(de,ate);
+        sorteados.push(numero);
+
+        while (sorteados.includes(numero)){
+            numero = obter_numero_aleatorio(de,ate);
+        }
+    }
+    let resultado = document.getElementById('resultado');
+    resultado.innerHTML = `<label class="texto__paragrafo">Números sorteados:  ${sorteados}</label>`;
+}
+
+function obter_numero_aleatorio(min,max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
 }

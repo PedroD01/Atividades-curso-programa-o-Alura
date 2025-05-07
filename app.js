@@ -3,6 +3,13 @@ function sortear () {
     let de = parseInt(document.getElementById('de').value);
     let ate = parseInt(document.getElementById('ate').value);
 
+    let protect = ate - de;
+
+    if (protect <= 0){
+      alert("ERRO, favor inserir um valor maior no campo 'Até número' ");
+      return;
+    }
+
     let numero;
     let sorteados = [];
     for(let i = 0; i < quant; i++){

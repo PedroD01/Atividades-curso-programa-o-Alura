@@ -6,7 +6,11 @@ function sortear () {
     let protect = ate - de;
 
     if (protect <= 0){
-      alert("ERRO, favor inserir um valor maior no campo 'Até número' ");
+      alert("ERRO! Favor inserir um valor maior no campo 'Até número'.");
+      return;
+    }
+    if (quant > protect){
+      alert("ERRO! Favor inserir valor menor no campo 'Quantidade de números'.");
       return;
     }
 
